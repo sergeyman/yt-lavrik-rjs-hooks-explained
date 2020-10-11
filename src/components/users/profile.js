@@ -2,10 +2,24 @@ import React from "react";
 import * as usersApi from "./../../api/users";
 
 export default class extends React.PureComponent {
-  state = {};
+  state = {
+    loaded: false,
+    info: null
+  };
+
+  componentDidMount() {
+    // right, but not optimal <componentWillMount>
+    usersApi.get(this.props.id).then((info) => {
+      //console.log(users);
+      this.setState({
+        loaded: true,
+        info
+      });
+    });
+  }
 
   render() {
-    if (true) {
+    if (!this.state.loaded) {
       return <div>Loading...</div>;
     }
 
@@ -14,11 +28,11 @@ export default class extends React.PureComponent {
         <tbody>
           <tr>
             <td>Name</td>
-            <td></td>
+            <td>{this.state.info.name}</td>
           </tr>
           <tr>
             <td>About</td>
-            <td></td>
+            <td>{this.state.info.desc}</td>
           </tr>
           <tr onClick={this.somethingInc}>
             <td>Something Counter</td>
