@@ -9,6 +9,24 @@ export default class extends React.PureComponent {
 
   componentDidMount() {
     // right, but not optimal <componentWillMount>
+    this.loadInfo();
+  }
+
+  // Problem 3 reload users in table
+  // обновлять комп. только если мы изменили вход. параметр
+  // для него
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      console.log("update"); // twise?
+
+      this.loadInfo();
+    }
+  }
+
+  loadInfo() {
+    if (this.state.loaded) {
+      this.setState({ loaded: false, info: false });
+    }
     usersApi.get(this.props.id).then((info) => {
       //console.log(users);
       this.setState({
@@ -24,7 +42,7 @@ export default class extends React.PureComponent {
     }
 
     return (
-      <table className="table tabel-bordered">
+      <table className="table tabel-bordered actions">
         <tbody>
           <tr>
             <td>Name</td>

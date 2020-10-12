@@ -1,0 +1,22 @@
+.users ul {
+  margin: 20px 0px;
+  padding: 0;
+  list-style: none;
+  width: 40%;
+}
+
+.users ul li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -1px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.users table .actions {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}

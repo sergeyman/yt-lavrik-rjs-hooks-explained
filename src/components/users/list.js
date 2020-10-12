@@ -2,6 +2,8 @@ import React from "react";
 import * as usersApi from "./../../api/users";
 import UserProfile from "./profile";
 
+//import "./list.css";
+
 export default class extends React.PureComponent {
   //PureComponent - ?
   state = {
@@ -58,10 +60,15 @@ export default class extends React.PureComponent {
       this.state.selectedId === null ? (
         <div className="alert alert-warning">Please, selected user!</div>
       ) : (
-        <UserProfile id={this.state.selectedId} />
+        <UserProfile
+          id={this.state.selectedId}
+          //problem 3 solve #1 full reload
+          // key={this.state.selectedId}
+        />
       );
 
     return (
+      // <div className="users">
       <div>
         <ul className="list-group">{usersList}</ul>
         <hr />
@@ -78,4 +85,10 @@ componentDidMount - no logic in render
 
 2) active css class for selected user
 setId on selected
+
+3) Problem on reloading user in table
+(Компонент не знает, что ему нужно обновиться)
+
+4) Task (CSS, dispaly: flex)
+put table on the left of the list not below
 */
