@@ -43,22 +43,25 @@ export default class extends React.PureComponent {
     }
 
     return (
-      <table className="table tabel-bordered actions">
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td>{this.state.info.name}</td>
-          </tr>
-          <tr>
-            <td>About</td>
-            <td>{this.state.info.desc}</td>
-          </tr>
-          <tr onClick={this.somethingInc}>
-            <td>Something Counter</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <p>Functional components with hooks</p>
+        <table className="table tabel-bordered actions">
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>{this.state.info.name}</td>
+            </tr>
+            <tr>
+              <td>About</td>
+              <td>{this.state.info.desc}</td>
+            </tr>
+            <tr onClick={this.somethingInc}>
+              <td>Something Counter</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

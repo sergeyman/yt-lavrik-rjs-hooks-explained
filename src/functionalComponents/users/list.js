@@ -70,6 +70,7 @@ export default class extends React.PureComponent {
     return (
       // <div className="users">
       <div>
+        <p>Functional compmnents with hooks</p>
         <ul className="list-group">{usersList}</ul>
         <hr />
         {userInfo}
@@ -77,24 +78,3 @@ export default class extends React.PureComponent {
     );
   }
 }
-
-/*
-React class components = this everywhere!
-1) When request the api
-componentDidMount - no logic in render
-
-2) active css class for selected user
-setId on selected
-
-3) Problem on reloading user in table
-(Компонент не знает, что ему нужно обновиться)
-
-4) Task (CSS, dispaly: flex)
-put table on the left of the list not below
-
-RJS hooks for LCM - неявные, слишком много их, устарел componentReceiveProps(), много надо знать про this, bind() (или () => {}) !!!!!!!!!  // говорим this, думаем bind() 
-// => || bind() //!!!!!!!!!!!!!!!!!!!!!!!   NO this!!!!!!!!!!  NO bind()!!!!!!!!!!!!! Use hooks!!!!!!!!!!!!!!
-//HOCs hell
-
-[49:52]
-*/

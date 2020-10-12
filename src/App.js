@@ -1,7 +1,9 @@
 import React from "react";
 import "./styles.css";
 
-import UserList from "./components/users/list";
+//import UserList from "./components/users/list";
+import UserList from "./functionalComponents/users/list";
+
 export default function App() {
   return (
     <div className="App">
