@@ -1,8 +1,8 @@
 import React from "react";
-import "./styles.css";
+import "../styles.css";
 
-//import UserList from "./components/users/list";
-import UserList from "./functionalComponents/users/list";
+import UserList from "./users/list";
+//import UserList from "./functionalComponents/users/list";
 
 export default function App1() {
   return (

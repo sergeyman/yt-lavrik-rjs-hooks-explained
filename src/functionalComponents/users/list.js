@@ -14,6 +14,8 @@ export default function () {
     usersApi.all().then((list) => setUsers({ loaded: true, list }));
   });
 
+  let [selectedId, setId] = useState(null);
+
   /*
   state = {
     loaded: false,
@@ -60,9 +62,10 @@ export default function () {
     return (
       <li
         className={classes.join(" ")}
-        key="user.id"
+        key={user.id}
         // onClick={() => this.setId(user.id)}
-        onClick={() => {}}
+        // onClick={() => {}}
+        onClick={() => setId(user.id)} // rewrite null to selectedId
       >
         {user.name}
       </li>
@@ -72,12 +75,15 @@ export default function () {
   // let userInfo = this.state.selectedId;
   let userInfo =
     // this.state.selectedId === null ? (
-    1 === null ? (
+    //1 === null ? (
+    selectedId === null ? (
       <div className="alert alert-warning">Please, selected user!</div>
     ) : (
       <UserProfile
         // id={this.state.selectedId}
-        id={null}
+        // id={null}
+        // id={1}               //make profile.js work
+        id={selectedId}
         //problem 3 solve #1 full reload
         // key={this.state.selectedId}
       />

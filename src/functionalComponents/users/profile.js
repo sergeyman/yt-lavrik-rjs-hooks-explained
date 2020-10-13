@@ -44,7 +44,6 @@ export default class extends React.PureComponent {
 
     return (
       <div>
-        <p>Functional components with hooks</p>
         <table className="table tabel-bordered actions">
           <tbody>
             <tr>

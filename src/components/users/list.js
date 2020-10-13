@@ -70,6 +70,7 @@ export default class extends React.PureComponent {
     return (
       // <div className="users">
       <div>
+        <p>Class components without hooks</p>
         <ul className="list-group">{usersList}</ul>
         <hr />
         {userInfo}
