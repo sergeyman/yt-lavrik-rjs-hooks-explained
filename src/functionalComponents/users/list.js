@@ -11,8 +11,9 @@ export default function () {
 
   //subst all LCM (invoke on rerender comp.)
   useEffect(() => {
+    console.log("Effect");
     usersApi.all().then((list) => setUsers({ loaded: true, list }));
-  });
+  }, []);
 
   let [selectedId, setId] = useState(null);
 
@@ -56,7 +57,9 @@ export default function () {
   let usersList = users.list.map((user) => {
     let classes = []; // selected user show
     //if (user.id === this.state.selectedId) {
-    if (user.id === 0) {
+    // if (user.id === 0) {
+    if (user.id === selectedId) {
+      //selectin for clicked
       classes.push("text-success");
     }
     return (

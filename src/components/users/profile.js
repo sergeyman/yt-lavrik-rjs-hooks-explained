@@ -17,6 +17,7 @@ export default class extends React.PureComponent {
   // обновлять комп. только если мы изменили вход. параметр
   // для него
   componentDidUpdate(prevProps) {
+    // !!!!!!!!!! плохо.
     if (prevProps.id !== this.props.id) {
       console.log("update"); // twise?
 
