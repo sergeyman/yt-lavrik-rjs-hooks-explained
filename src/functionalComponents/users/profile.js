@@ -25,6 +25,7 @@ export default function (props) {
     });
   }, [props.id]); // иначе дергается //if (prevProps.id !== this.props.id) {
 
+  let [something, setSomething] = useState(1);
   // No LCM in FC
   // componentDidMount() {
   //   // right, but not optimal <componentWillMount>
@@ -76,11 +77,13 @@ export default function (props) {
             {/* <td>{this.state.info.desc}</td> */}
             <td>{user.info.desc}</td>
           </tr>
-          {/* <tr onClick={this.somethingInc}>
-          <tr onClick={1}>
+          {/* <tr onClick={this.somethingInc}> */}
+          {/* <tr onClick={1}> */}
+          <tr onClick={() => setSomething(something++)}>
             <td>Something Counter</td>
-            <td>{this.state.something}</td>
-          </tr> */}
+            {/* <td>{this.state.something}</td> */}
+            <td>{something}</td>
+          </tr>
         </tbody>
       </table>
     </div>
