@@ -5,7 +5,7 @@ export default class extends React.PureComponent {
   state = {
     loaded: false,
     info: null,
-    something: null
+    something: 1
   };
 
   componentDidMount() {
@@ -38,10 +38,22 @@ export default class extends React.PureComponent {
     });
   }
 
+  //computed values (MobX - computed getter) - не надо пересчитывать кажд. раз
+  derSomething(something) {
+    console.log("der");
+    return something ** 8;
+  }
+
+  somethingInc = () => {
+    this.setState({ something: this.state.something + 1 });
+  };
+
   render() {
     if (!this.state.loaded) {
       return <div>Loading...</div>;
     }
+
+    let der = this.derSomething(this.state.something);
 
     return (
       <div>
@@ -57,7 +69,11 @@ export default class extends React.PureComponent {
             </tr>
             <tr onClick={this.somethingInc}>
               <td>Something Counter</td>
-              <td></td>
+              <td>{this.state.something}</td>
+            </tr>
+            <tr>
+              <td>Something Derivative</td>
+              <td>{der}</td>
             </tr>
           </tbody>
         </table>

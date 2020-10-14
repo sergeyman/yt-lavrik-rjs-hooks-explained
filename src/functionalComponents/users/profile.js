@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import * as usersApi from "./../../api/users";
 
 // export default class extends React.PureComponent {
@@ -26,6 +26,12 @@ export default function (props) {
   }, [props.id]); // иначе дергается //if (prevProps.id !== this.props.id) {
 
   let [something, setSomething] = useState(1);
+  // let der = useMemo(() => something ** 8, [something]);
+  let der = useMemo(() => {
+    console.log(1);
+    return something ** 8;
+  }, [something]);
+
   // No LCM in FC
   // componentDidMount() {
   //   // right, but not optimal <componentWillMount>
@@ -83,6 +89,11 @@ export default function (props) {
             <td>Something Counter</td>
             {/* <td>{this.state.something}</td> */}
             <td>{something}</td>
+          </tr>
+          <tr>
+            <td>Something Der</td>
+            {/* <td>{this.state.something}</td> */}
+            <td>{der}</td>
           </tr>
         </tbody>
       </table>
